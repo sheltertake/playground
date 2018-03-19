@@ -53,12 +53,9 @@ describe("ES6 / ES2015 - Modern browsers + EDGE [96%] - 2015", () => {
         );
       });
 
-      if (
-        ("No separate this",
-        () => {
-          //TODO
-        })
-      );
+      it("No separate this", () => {
+        //TODO
+      });
 
       it("0 parameters", () => {
         assert((() => 5)() === 5);
