@@ -58,18 +58,19 @@ describe("ES6 / ES2015 - Modern browsers + EDGE [96%] - 2015", () => {
       });
 
       it("0 parameters", () => {
-        assert((() => 5)() === 5);
+        const arr = () => 5;
+        assert(arr() === 5);
       });
       it("1 parameter, no brackets", () => {
-        var lambda = x => x + "foo";
-        assert(lambda("fee fie foe ") === "fee fie foe foo");
+        const arr = x => x + "foo";
+        assert(arr("fee fie foe ") === "fee fie foe foo");
       });
-      it("multiple parameters", () => {
+      it("multiple parameters - parentesis mandatory", () => {
         var c = (v, w, x, y, z) => "" + v + w + x + y + z;
         assert(c(6, 5, 4, 3, 2) === "65432");
       });
 
-      it(' lexical "this" binding', () => {
+      it('lexical "this" binding', () => {
         var d = {
           x: "bar",
           y: function() {
@@ -94,11 +95,5 @@ describe("ES6 / ES2015 - Modern browsers + EDGE [96%] - 2015", () => {
   });
 
   describe("Promises", () => {});
-  describe("Block-Scoped Constructs Let and Const", () => {});
   describe("Modules", () => {});
-  describe("Default Parameters", () => {});
-  describe("Template Literals", () => {});
-  describe("Multi-line Strings", () => {});
-  describe("Destructuring Assignment", () => {});
-  describe("Enhanced Object Literals", () => {});
 });
