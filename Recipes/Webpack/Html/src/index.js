@@ -1,4 +1,4 @@
 import foo from "./foo";
 
 foo();
-alert(4);
+alert(5);
