@@ -53,10 +53,6 @@ describe("ES6 / ES2015 - Modern browsers + EDGE [96%] - 2015", () => {
         );
       });
 
-      it("No separate this", () => {
-        //TODO
-      });
-
       it("0 parameters", () => {
         const arr = () => 5;
         assert(arr() === 5);
@@ -90,6 +86,35 @@ describe("ES6 / ES2015 - Modern browsers + EDGE [96%] - 2015", () => {
       it('no "prototype" property', () => {
         var a = () => 5;
         assert(a.hasOwnProperty("prototype") === false);
+      });
+
+      it("Not Just Shorter Syntax", () => {
+        var controller = {
+          foo: 1,
+          getFooFunction: function() {
+            return this.foo;
+          },
+
+          getFooArrow: () => {
+            return this.foo;
+          },
+          getArgsFunction: function() {
+            return Array.prototype.slice.call(arguments);
+          },
+          getArgsArrow: () => {
+            return Array.prototype.slice.call(arguments);
+          }
+        };
+        assert(controller.getFooFunction() === controller.foo);
+        assert(controller.getFooArrow() !== controller.foo);
+
+        var obj = Object.create(controller);
+
+        assert(obj.getFooFunction() === obj.foo);
+        assert(obj.getFooArrow() !== obj.foo);
+
+        assert.deepEqual(controller.getArgsFunction(1, 2, 3), [1, 2, 3]);
+        assert.notDeepEqual(controller.getArgsArrow(1, 2, 3), [1, 2, 3]);
       });
     });
   });
