@@ -40,13 +40,13 @@ namespace DotNetCore.Base.Host.Tests
         public void TestActionFilter()
         {
             //ActionExecutingContext(ActionContext actionContext, IList<IFilterMetadata> filters, IDictionary<string, object> actionArguments, object controller);
-            //var result = new Mock<ViewResult>();
-            //var testModel = new TestModel() {Id = 1, Title = "Test"};
+            var result = new Mock<ViewResult>();
+            var testModel = new TestModel() {Id = 1, Title = "Test"};
             //var result = new Mock<IActionResult>();
-            //result.SetupProperty(x => ((ViewResult).Model, new List<TestModel>()
-            //{
-            //    testModel
-            //});
+            result.SetupGet(x => x.Model).Returns(new List<TestModel>()
+            {
+              testModel
+            });
             var actionContext = new ActionContext(Mock.Of<HttpContext>(),
                 new Microsoft.AspNetCore.Routing.RouteData(),
                 new ActionDescriptor());

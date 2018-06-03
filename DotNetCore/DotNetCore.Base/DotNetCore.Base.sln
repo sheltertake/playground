@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetCore.Base.Host", "src
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{6468E51A-9154-4127-923C-F7D4D4E5AB18}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetCore.Base.Host.Tests", "tests\DotNetCore.Base.Host.Tests\DotNetCore.Base.Host.Tests.csproj", "{213F351C-BF59-41B8-AA41-65C96B85096B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetCore.Base.Host.Tests", "tests\DotNetCore.Base.Host.Tests\DotNetCore.Base.Host.Tests.csproj", "{213F351C-BF59-41B8-AA41-65C96B85096B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetCore.Base.Host.SelfHostedTests", "tests\DotNetCore.Base.Host.SelfHostedTests\DotNetCore.Base.Host.SelfHostedTests.csproj", "{6E451571-94A9-47CE-B451-BCE2E1A29E1A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,12 +25,17 @@ Global
 		{213F351C-BF59-41B8-AA41-65C96B85096B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{213F351C-BF59-41B8-AA41-65C96B85096B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{213F351C-BF59-41B8-AA41-65C96B85096B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E451571-94A9-47CE-B451-BCE2E1A29E1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E451571-94A9-47CE-B451-BCE2E1A29E1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E451571-94A9-47CE-B451-BCE2E1A29E1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E451571-94A9-47CE-B451-BCE2E1A29E1A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{213F351C-BF59-41B8-AA41-65C96B85096B} = {6468E51A-9154-4127-923C-F7D4D4E5AB18}
+		{6E451571-94A9-47CE-B451-BCE2E1A29E1A} = {6468E51A-9154-4127-923C-F7D4D4E5AB18}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0D70D7C5-DE4C-4EEF-9695-D810BCE21651}
