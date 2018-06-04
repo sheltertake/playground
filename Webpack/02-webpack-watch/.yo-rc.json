@@ -1,0 +1,59 @@
+{
+  "02-webpack-watch": {
+    "configuration": {
+      "config": {
+        "webpackOptions": {
+          "module": {
+            "rules": [
+              {
+                "test": "/\\.js$/",
+                "exclude": "/node_modules/",
+                "loader": "'babel-loader'",
+                "options": {
+                  "presets": [
+                    "'env'"
+                  ]
+                }
+              },
+              {
+                "test": "/\\.css$/",
+                "use": [
+                  {
+                    "loader": "'style-loader'",
+                    "options": {
+                      "sourceMap": true
+                    }
+                  },
+                  {
+                    "loader": "'css-loader'"
+                  }
+                ]
+              }
+            ]
+          },
+          "plugins": [
+            "new UglifyJSPlugin()"
+          ],
+          "entry": {
+            "app": "\"./src/app.js\"",
+            "vendor": "\"./src/vendor.js\""
+          },
+          "output": {
+            "filename": "'[name].[chunkhash].js'",
+            "chunkFilename": "'[name].[chunkhash].js'",
+            "path": "path.resolve(__dirname, 'dist')"
+          }
+        },
+        "topScope": [
+          "const webpack = require('webpack')",
+          "const path = require('path')",
+          "/*\n * We've enabled UglifyJSPlugin for you! This minifies your app\n * in order to load faster and run less javascript.\n *\n * https://github.com/webpack-contrib/uglifyjs-webpack-plugin\n *\n */",
+          "const UglifyJSPlugin = require('uglifyjs-webpack-plugin');",
+          "\n",
+          "/*\n * We've enabled commonsChunkPlugin for you. This allows your app to\n * load faster and it splits the modules you provided as entries across\n * different bundles!\n *\n * https://webpack.js.org/plugins/commons-chunk-plugin/\n *\n */"
+        ],
+        "configName": "config"
+      }
+    }
+  }
+}

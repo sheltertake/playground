@@ -1,0 +1,39 @@
+﻿@using DotNetCore.Base.Host.Controllers
+@using DotNetCore.Base.Host.Models
+@using Newtonsoft.Json
+@model IEnumerable<TestModel>
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<h2>title</h2>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>title</th>
+            <th>completed</th>
+            <th>1</th>
+            <th>2</th>
+            <th>3</th>
+            <th>4</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Title</td>
+                <td>@Html.CheckBox("comp", item.Completed)</td>
+                <td>@item.TicksBeforeActionFilter</td>
+                <td>@item.TicksAfterActionFilter</td>
+                <td>@item.TicksBeforeResultFilter</td>
+                <td>@item.TicksAfterResultFilter</td>
+            </tr>
+            @*<pre>@Html.Raw(JsonConvert.SerializeObject(item))</pre>*@
+        }
+    </tbody>
+</table>
