@@ -14,3 +14,5 @@ npm install -D system-bell-webpack-plugin
 npm install -D case-sensitive-paths-webpack-plugin
 
 npm install html-webpack-template --save-dev
+
+test
