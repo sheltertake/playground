@@ -1,0 +1,133 @@
+<div class="text-white m-2">
+    <div [ngClass]="getClassesByPosition(0)">
+        The first product is {{getProductByPosition(0).name}}.
+    </div>
+    <div [ngClass]="getClassesByPosition(1)">
+        The second product is {{getProductByPosition(1).name}}
+    </div>
+</div>
+<pre>
+        model.products.shift()
+        appRef.tick()
+</pre>
+<div [ngClass]="getClasses(1)">
+    There are {{model.getProducts().length}} products in the model
+</div>
+<div [ngClass]="'text-white m-2 p-2 ' + getClasses(1)" [textContent]="'Name: ' + (model.getProduct(1)?.name || 'None')">
+</div>
+<div class="form-group m-2">
+    <label>Name:</label>
+    <input class="form-control" [value]="model.getProduct(1)?.name || 'None'" />
+</div>
+<div [ngClass]="'text-white m-2 p-2 ' + getClasses(1)">
+    Name: {{ model.getProduct(1)?.name || 'None' }}
+</div>
+<h1>
+    Attribute binding
+</h1>
+<table class="table table-sm table-bordered table-striped mt-2">
+    <tr>
+        <th>1</th>
+        <th>2</th>
+        <th>3</th>
+        <th>4</th>
+        <th>5</th>
+    </tr>
+    <tr>
+        <td [attr.colspan]="model.getProducts().length">
+            {{model.getProduct(1)?.name || 'None'}}
+        </td>
+    </tr>
+</table>
+<p>Si usa attr.colspan perchè colspan non è una prop del DOM.</p>
+<p [align]="'left'">LEFT</p>
+<p [align]="'right'">RIGHT</p>
+
+<pre>
+    The Angular Property Bindings
+</pre>
+<pre>
+    [property] This is the standard property binding, which is used to set a property on the JavaScript
+object that represents the host element in the Document Object Model (DOM), as
+described in the “Using the Standard Property and Attribute Bindings” section.
+[attr.name] This is the attribute binding, which is used to set the value of attributes on the host
+HTML element for which there are no DOM properties, as described in the “Using the
+Attribute Binding” section.
+[class.name] This is the special class property binding, which is used to configure class membership
+of the host element, as described in the “Using the Class Bindings” section.
+[style.name] This is the special style property binding, which is used to configure style settings of the
+host element, as described in the “Using the Style Bindings” section
+</pre>
+<pre>
+    The Angular Brackets
+</pre>
+<pre>
+    [target]="expr" The square brackets indicate a one-way data binding where data flows from the
+        expression to the target. The different forms of this type of binding are the topic of
+        this chapter.
+        {{expression}} This is the string interpolation binding, which is described in the “Using the
+        String Interpolation Binding” section.
+        (target) ="expr" The round brackets indicate a one-way binding where the data flows from the
+        target to the destination specified by the expression. This is the binding used to
+        handle events, as described in Chapter 14.
+        [(target)] ="expr" This combination of brackets—known as the banana-in-a-box—indicates a
+        two-way binding, where data flows in both directions between the target and the
+        destination specified by the expression, as described in Chapter 14.
+
+</pre>
+<h1>Setting Classes and Styles</h1>
+<div [class]="'bg-info'">
+    This binding evaluates the expression and uses the result to
+    replace any existing class memberships.
+</div>
+<div [class.bg-info]="true">
+    This binding evaluates the expression and uses the result to set
+    the element’s membership of myClass.
+</div>
+<div [ngClass]="{'bg-info': true, 'bg-warning':true}">
+    This binding sets class membership of multiple classes using
+    the data in a map object.
+</div>
+<div class="text-white m-2">
+    <div [class]="getClasses(1)">
+        The first product is {{model.getProduct(1).name}}.
+    </div>
+    <div [class]="getClasses(2)">
+        The second product is {{model.getProduct(2).name}}
+    </div>
+</div>
+<div class="p-2" [class.bg-success]="model.getProduct(2).price < 50" [class.bg-info]="model.getProduct(2).price >= 50">
+    The second product is {{model.getProduct(2).name}}
+</div>
+<div class="p-2" [ngClass]="getClassMap(1)">
+    The first product is {{model.getProduct(1).name}}.
+</div>
+<div class="p-2" [ngClass]="getClassMap(2)">
+    The second product is {{model.getProduct(2).name}}.
+</div>
+<div class="p-2" [ngClass]="{'bg-success': model.getProduct(3).price < 50,
+        'bg-info': model.getProduct(3).price >= 50}">
+    The third product is {{model.getProduct(3).name}}
+</div>
+<h1>Using the Style Bindings</h1>
+<div class="text-white m-2">
+    <div class="p-2 bg-warning">
+        The <span [style.fontSize]="fontSizeWithUnits">first</span>
+        product is {{model.getProduct(1).name}}.
+    </div>
+    <div class="p-2 bg-info">
+        The <span [style.fontSize.px]="fontSizeWithoutUnits">second</span>
+        product is {{model.getProduct(2).name}}
+    </div>
+</div>
+<h1>Using ngStyle</h1>
+<div class="text-white m-2">
+    <div class="p-2 bg-warning">
+        The <span [ngStyle]="getStyles(1)">first</span>
+        product is {{model.getProduct(1).name}}.
+    </div>
+    <div class="p-2 bg-info">
+        The <span [ngStyle]="getStyles(2)">second</span>
+        product is {{model.getProduct(2).name}}
+    </div>
+</div>
